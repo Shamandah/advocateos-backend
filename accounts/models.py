@@ -20,7 +20,7 @@ class Firm(models.Model):
     """Top-level tenant. All data is scoped to a firm."""
 
     name = models.CharField(max_length=255)
-    lsk_number = models.CharField(max_length=50, unique=True, blank=True)
+    lsk_number = models.CharField(max_length=50, unique=True, blank=True, null=True, default=None)
     address = models.TextField(blank=True)
     phone = models.CharField(max_length=20, blank=True)
     email = models.EmailField(blank=True)
