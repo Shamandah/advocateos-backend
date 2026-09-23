@@ -59,7 +59,7 @@ class Matter(models.Model):
         on_delete=models.CASCADE,
         related_name='matters'
     )
-    reference = models.CharField(max_length=50, unique=True, blank=True)
+    reference = models.CharField(max_length=50, blank=True)
     title = models.CharField(max_length=500)
     cause_number = models.CharField(max_length=100, blank=True)
 
@@ -161,6 +161,9 @@ class MatterNote(models.Model):
 
     class Meta:
         ordering = ['-created_at']
-
-    def __str__(self):
-        return f'Note on {self.matter.reference} by {self.author}'
+    constraints = [
+        models.UniqueConstraint(
+            fields=['firm', 'reference'],
+            name='unique_matter_reference_per_firm'
+        )
+    ]
