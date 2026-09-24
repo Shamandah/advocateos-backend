@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'billing',
     'calendar_events',
+    'documents',
     'matters','rest_framework',
     'rest_framework_simplejwt.token_blacklist',
 
