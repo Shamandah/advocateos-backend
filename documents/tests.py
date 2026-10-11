@@ -5,7 +5,7 @@ from rest_framework.test import APIClient
 from rest_framework import status
 from accounts.models import Firm, User
 from matters.models import Client, Matter
-from documents.models import Document, DocumentVersion
+from .models import Document, DocumentVersion
 
 
 def make_firm_and_user(firm_name='Test Firm', email='amanda@firm.co.ke'):

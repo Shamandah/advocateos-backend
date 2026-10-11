@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'calendar_events',
     'matters','rest_framework',
     'documents',
+    'ai',
+    'document_templates',
     'rest_framework_simplejwt.token_blacklist',
 
 
