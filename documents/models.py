@@ -2,10 +2,12 @@ from django.db import models
 from django.conf import settings
 
 
-# AFTER
 def document_upload_path(instance, filename):
-    return f'documents/firm_{instance.document.matter.firm_id}/matter_{instance.document.matter_id}/{filename}'
-
+    """Store uploaded files under their firm's and matter's directories."""
+    return (
+        f'documents/firm_{instance.document.matter.firm_id}/'
+        f'matter_{instance.document.matter_id}/{filename}'
+    )
 class Document(models.Model):
     """
     A document attached to a matter.
